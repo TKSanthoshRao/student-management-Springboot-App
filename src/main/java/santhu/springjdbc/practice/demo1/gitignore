@@ -1,0 +1,41 @@
+# ========== Java / Maven ==========
+target/
+!.mvn/wrapper/maven-wrapper.jar
+**/logs/
+*.log
+*.class
+
+# ========== IntelliJ IDEA ==========
+.idea/
+*.iml
+*.iws
+out/
+
+# ========== OS / Environment Specific ==========
+.DS_Store
+Thumbs.db
+
+# ========== Eclipse (if you use it) ==========
+.project
+.classpath
+.settings/
+
+# ========== VSCode (optional) ==========
+.vscode/
+
+# ========== Environment / Secrets ==========
+.env
+*.env
+*.db
+*.key
+*.pem
+*.crt
+
+# ========== Spring Boot Specific ==========
+# If using application-dev.properties etc.
+application-*.properties
+application-*.yml
+
+# ========== Logs ==========
+*.log
+logs/
