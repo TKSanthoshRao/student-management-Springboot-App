@@ -25,4 +25,12 @@ public class StudentService {
     public List<Student> getStudents() {
         return studentRepo.findAll();
     }
+
+    public void deleteStudent(int id) {
+        studentRepo.deleteStudentFromRepo(id);
+    }
+
+    public void updateStudent(Student student) {
+        studentRepo.updateStudentInRepo(student);
+    }
 }
