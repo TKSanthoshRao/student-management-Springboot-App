@@ -24,8 +24,9 @@ public class Demo1Application {
             System.out.println("2. Delete Student");
             System.out.println("3. Update Student");
             System.out.println("4. View All Students");
-            System.out.println("5. Exit");
-            System.out.print("Enter choice (1-5): ");
+            System.out.println("5. View Student by ID");
+            System.out.println("6. Exit");
+            System.out.print("Enter choice (1-6): ");
 
             int choice = getIntInput(sc);
 
