@@ -20,6 +20,7 @@ public class StudentRepo {
 
 
     public JdbcTemplate getJdbcTemplate() {
+
         return jdbcTemplate;
     }
 
@@ -65,4 +66,16 @@ public class StudentRepo {
         }
     }
 
+    public List<Student> searchStudentFromDb(String name) {
+        String sql = "SELECT * FROM student where name ILIKE ?";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            Student student = new Student();
+            student.setId(rs.getInt("id"));
+            student.setName(rs.getString("name"));
+            student.setMarks(rs.getFloat("marks"));
+            student.setGender(rs.getString("gender").charAt(0));
+            return student;
+        },"%" + name+"%");
+
+    }
 }

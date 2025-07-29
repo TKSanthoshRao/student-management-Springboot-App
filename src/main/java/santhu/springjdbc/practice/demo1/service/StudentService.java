@@ -33,4 +33,8 @@ public class StudentService {
     public void updateStudent(Student student) {
         studentRepo.updateStudentInRepo(student);
     }
+
+    public List<Student> search(String name) {
+        return studentRepo.searchStudentFromDb(name);
+    }
 }

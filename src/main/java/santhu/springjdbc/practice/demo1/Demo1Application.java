@@ -24,8 +24,9 @@ public class Demo1Application {
             System.out.println("2. Delete Student");
             System.out.println("3. Update Student");
             System.out.println("4. View All Students");
-            System.out.println("5. Exit");
-            System.out.print("Enter choice (1-5): ");
+            System.out.println("5. Search Student");
+            System.out.println("6. Exit");
+            System.out.print("Enter choice (1-6): ");
 
             int choice = getIntInput(sc);
 
@@ -91,6 +92,13 @@ public class Demo1Application {
                     yield true;
                 }
                 case 5 -> {
+                    System.out.print("Enter Student Name : ");
+                    String name = sc.nextLine();
+                    List<Student> students = service.search(name);
+                    students.forEach(a -> System.out.println("ID: " + a.getId() + ", Name: " + a.getName()+", Marks: " + a.getMarks()+", Gender: " + a.getGender()));
+                    yield true;
+                }
+                case 6 -> {
                     System.out.println("👋 Exiting... Thank you!");
                     yield false;
                 }
