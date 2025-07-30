@@ -1,5 +1,9 @@
 <%@page language="java"%>
 <html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" type="text/css" href="addStudent.css">
+</head>
 <body>
 <form action="/addStudent">
         <label for="name">Enter Student name : </label>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.*;
 
 @Controller
 public class HomeController{
@@ -33,9 +34,8 @@ public class HomeController{
             case "1" -> "addStudent";
             case "2" -> "deleteStudent";
             case "3" -> "updateStudent";
-            case "4" -> "viewAllStudents";
+            case "4" -> "redirect:/viewAllStudents";
             case "5" -> "searchStudent";
-            case "6" -> "redirect:/";  // Exit back to menu
             default -> {
                 model.addAttribute("error", "Invalid choice. Try again.");
                 yield "home";
@@ -57,6 +57,24 @@ public class HomeController{
         return "message";
     }
 
+    @RequestMapping("/updateStudent")
+    public String updateStudent(Student student,Model model){
+        studentService.updateStudent(student);
+        model.addAttribute("message","Successfully Updated student details");
+        return "message";
+    }
 
+    @RequestMapping("/viewAllStudents")
+    public String viewAllStudents(Model model){
+    List<Student> students = studentService.getStudents();
+    model.addAttribute("students",students);
+        return "viewAllStudents";
+    }
 
+    @RequestMapping("/searchStudent")
+    public String searchStudent(@RequestParam("pattern") String pattern, Model model){
+        List<Student> students = studentService.search(pattern);
+        model.addAttribute("students",students);
+        return "ShowSearchedStudent";
+    }
 }
