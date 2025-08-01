@@ -1,5 +1,6 @@
 package santhu.springjdbc.practice.demo1.service;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,6 @@ public class StudentService {
     }
 
     public void addStudent(Student student) {
-        System.out.println("...........Student Service layer.........");
         studentRepo.save(student);
     }
 
@@ -26,13 +26,19 @@ public class StudentService {
         return studentRepo.findAll();
     }
 
-//    public void deleteStudent(int id) {
-//        studentRepo.deleteStudentFromRepo(id);
-//    }
-//
-//    public void updateStudent(Student student) {
-//        studentRepo.updateStudentInRepo(student);
-//    }
+    public void deleteStudent(int id) {
+        Optional<Student> op = studentRepo.findById(id);
+        if (op.isPresent()) {
+            studentRepo.delete(op.get());
+        } else {
+            System.out.println("Student with ID " + id + " not found.");
+        }
+    }
+
+
+    public void updateStudent(Student student) {
+        studentRepo.save(student);
+    }
 
 //    public Student search(String name) {
 //        Optional<Student> op = studentRepo.findbyId(name);

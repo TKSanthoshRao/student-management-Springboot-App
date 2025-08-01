@@ -33,10 +33,10 @@ public class HomeController{
          switch (choice) {
              case "1" :
                  return "addStudent";
-//             case "2" :
-//                 return "deleteStudent";
-//             case "3" :
-//                 return "updateStudent";
+             case "2" :
+                 return "deleteStudent";
+             case "3" :
+                 return "updateStudent";
              case "4" :
                  return "redirect:/viewAllStudents";
              case "5" :
@@ -54,19 +54,19 @@ public class HomeController{
             return "message";
     }
 
-//    @RequestMapping("/deleteStudent")
-//    public String deleteStudent(@RequestParam("sid") int id, Model model){
-//        studentService.deleteStudent(id);
-//        model.addAttribute("message","Successfully deleted student with ID "+ id);
-//        return "message";
-//    }
+    @RequestMapping("/deleteStudent")
+    public String deleteStudent(@RequestParam("sid") int id, Model model){
+        studentService.deleteStudent(id);
+        model.addAttribute("message","Successfully deleted student with ID "+ id);
+        return "message";
+    }
 
-//    @RequestMapping("/updateStudent")
-//    public String updateStudent(Student student,Model model){
-//        studentService.updateStudent(student);
-//        model.addAttribute("message","Successfully Updated student details");
-//        return "message";
-//    }
+    @RequestMapping("/updateStudent")
+    public String updateStudent(Student student,Model model){
+        studentService.updateStudent(student);
+        model.addAttribute("message","Successfully Updated student details");
+        return "message";
+    }
 
     @RequestMapping("/viewAllStudents")
     public String viewAllStudents(Model model){
