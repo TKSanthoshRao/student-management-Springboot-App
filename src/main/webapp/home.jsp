@@ -11,7 +11,6 @@
         <li> Update Student</li>
         <li> View All Students</li>
         <li> Search Student</li>
-        <li> Exit</li>
     </ol>
 <form action="/handleChoice" method="post">
     <label for="choice">Enter your choice:</label>

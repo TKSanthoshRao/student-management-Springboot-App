@@ -26,15 +26,16 @@ public class StudentService {
         return studentRepo.findAll();
     }
 
-    public void deleteStudent(int id) {
-        studentRepo.deleteStudentFromRepo(id);
-    }
+//    public void deleteStudent(int id) {
+//        studentRepo.deleteStudentFromRepo(id);
+//    }
+//
+//    public void updateStudent(Student student) {
+//        studentRepo.updateStudentInRepo(student);
+//    }
 
-    public void updateStudent(Student student) {
-        studentRepo.updateStudentInRepo(student);
-    }
-
-    public List<Student> search(String name) {
-        return studentRepo.searchStudentFromDb(name);
-    }
+//    public Student search(String name) {
+//        Optional<Student> op = studentRepo.findbyId(name);
+//        return op.orElse(new Student());
+//    }
 }

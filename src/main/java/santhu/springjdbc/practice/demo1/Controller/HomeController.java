@@ -30,17 +30,21 @@ public class HomeController{
 
     @RequestMapping("/handleChoice")
     public String choice(@RequestParam("choice") String choice, Model model){
-        return switch (choice) {
-            case "1" -> "addStudent";
-            case "2" -> "deleteStudent";
-            case "3" -> "updateStudent";
-            case "4" -> "redirect:/viewAllStudents";
-            case "5" -> "searchStudent";
-            default -> {
+         switch (choice) {
+             case "1" :
+                 return "addStudent";
+//             case "2" :
+//                 return "deleteStudent";
+//             case "3" :
+//                 return "updateStudent";
+             case "4" :
+                 return "redirect:/viewAllStudents";
+             case "5" :
+                 return "searchStudent";
+             default :
                 model.addAttribute("error", "Invalid choice. Try again.");
-                yield "home";
-            }
-        };
+                return "home";
+        }
     }
 
     @RequestMapping("/addStudent")
@@ -50,19 +54,19 @@ public class HomeController{
             return "message";
     }
 
-    @RequestMapping("/deleteStudent")
-    public String deleteStudent(@RequestParam("sid") int id, Model model){
-        studentService.deleteStudent(id);
-        model.addAttribute("message","Successfully deleted student with ID "+ id);
-        return "message";
-    }
+//    @RequestMapping("/deleteStudent")
+//    public String deleteStudent(@RequestParam("sid") int id, Model model){
+//        studentService.deleteStudent(id);
+//        model.addAttribute("message","Successfully deleted student with ID "+ id);
+//        return "message";
+//    }
 
-    @RequestMapping("/updateStudent")
-    public String updateStudent(Student student,Model model){
-        studentService.updateStudent(student);
-        model.addAttribute("message","Successfully Updated student details");
-        return "message";
-    }
+//    @RequestMapping("/updateStudent")
+//    public String updateStudent(Student student,Model model){
+//        studentService.updateStudent(student);
+//        model.addAttribute("message","Successfully Updated student details");
+//        return "message";
+//    }
 
     @RequestMapping("/viewAllStudents")
     public String viewAllStudents(Model model){
@@ -71,10 +75,10 @@ public class HomeController{
         return "viewAllStudents";
     }
 
-    @RequestMapping("/searchStudent")
-    public String searchStudent(@RequestParam("pattern") String pattern, Model model){
-        List<Student> students = studentService.search(pattern);
-        model.addAttribute("students",students);
-        return "ShowSearchedStudent";
-    }
+//    @RequestMapping("/searchStudent")
+//    public String searchStudent(@RequestParam("pattern") String pattern, Model model){
+//        List<Student> students = studentService.search(pattern);
+//        model.addAttribute("students",students);
+//        return "ShowSearchedStudent";
+//    }
 }
