@@ -21,8 +21,12 @@ services:
       - 5433:5432
     networks:
       - s-network
-
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 
 networks:
   s-network:
     driver: bridge
+
+volumes:
+  postgres-data:
