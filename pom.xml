@@ -64,6 +64,7 @@
     </dependencies>
 
     <build>
+        <finalName>Student-management</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
